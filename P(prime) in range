@@ -1,0 +1,39 @@
+import math
+def is_prime(number):
+    if number <= 1:
+        return False
+    elif number == 2:
+        return True
+    elif number % 2 == 0:
+        return False
+
+
+    for i in range(3, int(number**0.5) + 1, 2):
+        if number % i == 0:
+            return False
+
+    return True
+
+def prob(a,b):
+    l=[]
+    
+    for i in range (a,b+1):
+        if is_prime(i) is True:
+            l+=[i]
+    return (len(l))/math.gcd(len(l),(b-a+1)),(b-a+1)/math.gcd(len(l),(b-a+1))
+
+x=int(input("Enter the starting of the range: "))
+y=int(input("Enter the ending of the range: "))
+
+n=int(input("Enter the numberator: "))
+n1=int(input("Enter the denominator: "))
+
+
+
+for i in range(x+1,y+1):
+    t=[]
+    k,k1=prob(x,i)
+    if n==k and n1==k1:
+        t+=[i]
+        print(t)
+    
